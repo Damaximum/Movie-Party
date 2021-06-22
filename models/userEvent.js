@@ -1,29 +1,26 @@
 const { Model, DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-class Friends extends Model {}
+class userEvent extends Model {}
 
-Friends.init(
+userEvent.init(
   {
-    requester_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
       },
     },
-    reciever_id: {
+    event_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "user",
+        model: "event",
         key: "id",
       },
     },
-    status: {
-      type: DataTypes.ENUM({
-        values: ["accepted", "pending", "rejected"],
-      }),
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
     },
   },
   {
@@ -31,8 +28,8 @@ Friends.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "friend",
+    modelName: "userEvent",
   }
 );
 
-module.exports = Friends;
+module.exports = userEvent;

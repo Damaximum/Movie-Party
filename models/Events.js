@@ -1,9 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class Event extends Model {}
+class Events extends Model {}
 
-Event.init(
+Events.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -26,25 +26,18 @@ Event.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
-    group_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'group',
-            key: 'id',
-        },
-        },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'event',
+    modelName: "event",
   }
 );
 
-module.exports = Event;
+module.exports = Events;

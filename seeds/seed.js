@@ -1,9 +1,10 @@
 const sequelize = require("../config/connection");
-const { User, Post, Comment } = require("../models");
+const { User, userEvent, Events, Friends } = require("../models");
 
 const userData = require("./userData.json");
-const postData = require("./postData.json");
-const commentData = require("./commentData.json");
+const eventsData = require("./eventsData.json");
+const friendsData = require("./friendsData.json");
+const userEventData = require("./userEventData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -13,16 +14,25 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const post of postData) {
-    await Post.create({
-      ...post,
+  for (const event of eventsData) {
+    await Events.create({
+      ...event,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
-  for (const comment of commentData) {
-    await Comment.create({
-      ...comment,
+  for (const friend of friendsData) {
+    await Friends.create({
+      ...friend,
+      requester_id: users[Math.floor(Math.random() * users.length)].id,
+      reciver_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+
+  for (const uEvent of userEventData) {
+    await userEvent.create({
+      ...uEvent,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 

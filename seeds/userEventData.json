@@ -1,0 +1,17 @@
+[
+    {
+        "event_id": 5,
+        "isAdmin": false
+    },
+    {
+        "event_id": 3,
+        "isAdmin": true
+    },
+    {
+        "event_id": 1,
+        "isAdmin": true
+    },{
+        "event_id": 2,
+        "isAdmin": false
+    }
+]

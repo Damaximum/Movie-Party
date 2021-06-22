@@ -1,45 +1,61 @@
-const User = require('./User');
-const Event = require('./Events');
-const Group = require('./Groups');
-const Friend = require('./Friends');
+const User = require("./User");
+const Events = require("./Events");
+const userEvent = require("./userEvent");
+const Friends = require("./Friends");
 
-User.hasMany(Group, {
-foreignKey: 'user_id'
+User.hasMany(Events, {
+  foreignKey: "user_id",
 });
 
-User.hasMany(Event, {
-foreignKey: 'user_id'
+Events.belongsTo(User, {
+  foreignKey: "user_id",
 });
 
-Group.hasMany(Event, {
-foreignKey: 'group_id',
-onDelete: 'CASCADE'
+// ---------------------- Begin userEvent Section----------------------------
+
+User.belongsToMany(Events, {
+  as: "attendee",
+  through: "userEvent",
+  foreignKey: "user_id",
 });
 
-Group.belongsTo(User, {
-foreignKey: 'user_id'
+Events.belongsToMany(User, {
+  as: "event",
+  through: "userEvent",
+  foreignKey: "user_II",
 });
 
-Event.belongsTo(User, {
-foreignKey: 'user_id'
+// User.hasMany(userEvent, {
+//   foreignKey: "user_id",
+// });
+
+// userEvent.belongsTo(User, {
+//   foreignKey: "user_id",
+// });
+
+// Events.hasMany(userEvent, {
+//   foreignKey: "event_id",
+// });
+
+// userEvent.belongsTo(Events, {
+//   foreignKey: "event_id",
+// });
+
+// ---------------------End of userEvent Section-------------------------
+
+// ---------------------- Begin Friends Section----------------------------
+
+Friends.belongsToMany(User, {
+  as: "requester",
+  through: "rel",
+  foreignKey: "requester_id",
 });
 
-Event.belongsTo(Group, {
-foreignKey: 'group_id'
-});
-// ---------------------- Begin Friend Section----------------------------
-
-Friend.hasMany(User, {
-    as: "requester_id",
-    through: "rel",
-    foreignKey: "requester_id"
+Friends.belongsToMany(User, {
+  as: "reciever",
+  through: "rel",
+  foreignKey: "reciever_id",
 });
 
-Friend.hasMany(User, {
-    as: "reciever_id",
-    through: "rel",
-    foreignKey: "reciever_id"
-});
-
-// ---------------------End of Friend Section-------------------------
-module.exports = { User, Event, Group, Friend };
+// ---------------------End of Friends Section-------------------------
+module.exports = { User, Events, userEvent, Friends };
