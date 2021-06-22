@@ -1,28 +1,28 @@
 const User = require("./User");
 const Events = require("./Events");
-const userEvent = require("./userEvent");
 const Friends = require("./Friends");
+const userEvent = require("./userEvent");
 
-User.hasMany(Events, {
-  foreignKey: "user_id",
-});
+// User.hasMany(Events, {
+//   foreignKey: "user_id",
+// });
 
-Events.belongsTo(User, {
-  foreignKey: "user_id",
-});
+// Events.belongsTo(User, {
+//   foreignKey: "user_id",
+// });
 
 // ---------------------- Begin userEvent Section----------------------------
 
 User.belongsToMany(Events, {
   as: "attendee",
   through: "userEvent",
-  foreignKey: "user_id",
+  // foreignKey: "user_id",
 });
 
 Events.belongsToMany(User, {
   as: "event",
   through: "userEvent",
-  foreignKey: "user_II",
+  // foreignKey: "user_id",
 });
 
 // User.hasMany(userEvent, {
@@ -58,4 +58,4 @@ Friends.belongsToMany(User, {
 });
 
 // ---------------------End of Friends Section-------------------------
-module.exports = { User, Events, userEvent, Friends };
+module.exports = { User, Events, Friends, userEvent };
