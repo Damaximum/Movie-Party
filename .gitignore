@@ -1,0 +1,11 @@
+node_modules
+.env
+.DS_Store
+
+config
+controllers
+db
+node_modules
+public
+seeds
+utils
