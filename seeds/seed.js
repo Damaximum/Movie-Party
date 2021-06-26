@@ -24,8 +24,8 @@ const seedDatabase = async () => {
   for (const friend of friendsData) {
     await Friends.create({
       ...friend,
-      requester_id: users[Math.floor(Math.random() * users.length)].id,
-      reciever_id: users[Math.floor(Math.random() * users.length)].id,
+      // requester_id: users[Math.floor(Math.random() * users.length)].id,
+      // reciever_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 

@@ -5,15 +5,25 @@ const userEvent = require("./userEvent");
 
 // ---------------------- Begin userEvent Section----------------------------
 
-User.belongsToMany(Events, {
-  as: "attendee",
-  through: "userEvent",
-});
+// User.belongsToMany(Events, {
+//   as: "attendee",
+//   through: "userEvent",
+// });
 
-Events.belongsToMany(User, {
-  as: "event",
-  through: "userEvent",
-});
+// Events.belongsToMany(User, {
+//   as: "user_event",
+//   through: "userEvent",
+// });
+
+Events.belongsTo(User);
+
+User.hasMany(userEvent);
+
+userEvent.belongsTo(User);
+
+Events.hasMany(userEvent);
+
+userEvent.belongsTo(Events);
 
 // ---------------------End of userEvent Section-------------------------
 

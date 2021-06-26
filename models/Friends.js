@@ -30,6 +30,7 @@ Friends.init(
       type: DataTypes.ENUM({
         values: ["accepted", "pending", "rejected"],
       }),
+      defaultValue: "pending",
     },
   },
   {
