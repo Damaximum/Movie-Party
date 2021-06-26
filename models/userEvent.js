@@ -28,9 +28,6 @@ userEvent.init(
     isAdmin: {
       type: DataTypes.BOOLEAN,
     },
-    rsvp: {
-      type: DataTypes.BOOLEAN,
-    }
   },
   {
     sequelize,
