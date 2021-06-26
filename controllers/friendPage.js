@@ -5,12 +5,10 @@ const { Friends, User } = require("../models");
 router.get("/", async (req, res) => {
   try {
     const dbfriend = await Friends.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
+      where: {
+        requester_id: req.session.user_id,
+      },
+      attributes: ["requestor_id"],
     });
 
     const friend = dbfriend.map((friend) => friend.get({ plain: true }));

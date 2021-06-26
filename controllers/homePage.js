@@ -14,15 +14,21 @@ router.get("/", async (req, res) => {
           {
             model: Events,
             attributes: ["title", "event_info", "date_created", "user_id"],
+            include: [
+              {
+                model: User,
+                attributes: ["name"],
+              },
+            ],
           },
         ],
       });
 
       const events = dbEvent.map((event) => event.get({ plain: true }));
       // console.log(req.session);
-      //     console.log(event);
+      // console.log(events);
       res.render("homePage", { events, loggedIn: req.session.loggedIn });
-      //     res.status(200).json(event);
+      // res.status(200).json(events);
     } else {
       res.render("homePage");
     }
