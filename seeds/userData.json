@@ -1,19 +1,4 @@
 [
-<<<<<<< HEAD
-    {
-      "name": "Sal",
-      "password": "password12345"
-    },
-    {
-      "name": "Lernantino",
-      "password": "password12345"
-    },
-    {
-      "name": "Amiko",
-      "password": "password12345"
-    }
-  ]
-=======
   {
     "name": "Sal",
     "password": "password12345"
@@ -27,4 +12,4 @@
     "password": "password12345"
   }
 ]
->>>>>>> main
+

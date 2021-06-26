@@ -17,11 +17,11 @@ router.get("/", withAuth, async (req, res) => {
       ],
     });
 
-    const event = dbEvent.map((event) => event.get({ plain: true }));
+    const events = dbEvent.map((event) => event.get({ plain: true }));
     // console.log(req.session);
-//     console.log(event);
-    res.render("eventsPage", { event, loggedIn: req.session.loggedIn });
-//     res.status(200).json(event);
+    //     console.log(event);
+    res.render("eventsPage", { events, loggedIn: req.session.loggedIn });
+    //     res.status(200).json(event);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -49,8 +49,4 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-module.exports = router;
->>>>>>> main
