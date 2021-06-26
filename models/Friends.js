@@ -42,4 +42,8 @@ Friends.init(
   }
 );
 
+<<<<<<< HEAD
 module.exports = Friends;
+=======
+module.exports = Friends;
+>>>>>>> main

@@ -58,4 +58,8 @@ User.init(
   }
 );
 
+<<<<<<< HEAD
 module.exports = User;
+=======
+module.exports = User;
+>>>>>>> main

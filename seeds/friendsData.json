@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
     {
       "requester_id":1,
       "reciever_id":2,
@@ -15,3 +16,21 @@
       "status": "accepted"
     }
   ]
+=======
+  {
+    "requester_id":1,
+    "reciever_id":2,
+    "status": "accepted"
+  },
+  {
+    "requester_id":2,
+    "reciever_id":1,
+    "status": "pending"
+  },
+  {
+    "requester_id":3,
+    "reciever_id":1,
+    "status": "accepted"
+  }
+]
+>>>>>>> main

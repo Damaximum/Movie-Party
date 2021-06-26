@@ -7,4 +7,8 @@ router.use("/events", eventRoutes);
 router.use("/friends", friendRoutes);
 router.use("/users", userRoutes);
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> main
