@@ -14,6 +14,7 @@
   <nav>
     <div class="nav-wrapper">
       <a href="/" class="brand-logo right grey-text text-lighten-5">Movie Party</a>
+      <a href="#!" data-target="mobile-drop" class="dropdown-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
         <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
@@ -26,6 +27,19 @@
       </ul>
     </div>
   </nav>
+  <ul class="dropdown-content" id="mobile-drop">
+    <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
+     <li class="divider"></li>
+    <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
+     <li class="divider"></li>
+    <li><a href="/friends" class="grey-text text-lighten-5" >Friends</a></li>
+     <li class="divider"></li>
+    {{#if loggedIn}}
+    <li><a href="/" id="logout" class="grey-text text-lighten-5">Logout</a></li>
+    {{else}}
+    <li><a href="/login" class="grey-text text-lighten-5">Login</a></li>
+    {{/if}}
+  </ul>
   </header>
         
 
@@ -38,6 +52,7 @@
     <script src="/js/login.js"></script>
     {{/if}}
 
+    <script src="/js/script.js"></script>
 
 </body>
 </html>
