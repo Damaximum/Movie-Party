@@ -38,4 +38,8 @@ userEvent.init(
   }
 );
 
+<<<<<<< HEAD
 module.exports = userEvent;
+=======
+module.exports = userEvent;
+>>>>>>> main

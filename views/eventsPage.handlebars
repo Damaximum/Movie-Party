@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        {{#if events.length}}
+        <div class="list-events">
+            <h4>List of Events:</h4>
+        </div>
+        {{!-- loop over each event --}}
+        {{#each events as |event|}}
+        <div class="row">
+            <div class="col s8">
+                <h4>
+                    <a href="/event/{{event.id}}">{{event.title}}</a>
+                </h4>
+                <p>Date of event: {{event.date_created}}</p>
+                <p>Hosted by: {{event.user_id.name}}</p>
+                <p>{{event_info}}</p>
+            </div>
+            <br>
+            <br>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn"><i class="material-icons right">add_circle</i>RSVP</a>
+                <br>
+                <br>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Share</a>
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+
+    {{!-- create an event form --}}
+    <div class="row">
+        <div class="center-align">
+            <h4>Create an Event:</h4>
+
+            <form class="form new-event-form" id="create-event-form" method="POST" action="/events">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Event Name" id="event-name" type="text" class="validate">
+                        <label for="event-name">Event Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Date of Event" id="event-date" type="text" class="datepicker">
+                        <label for="event-date">Date of Event</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Event Description" id="event-desc" type="text" class="validate">
+                        <label for="event-desc">Event Description</label>
+                    </div>
+                </div>
+            </form>
+
+            <a class="waves-effect waves-light btn-large" type="submit">Create an Event</a>
+
+        </div>
+    </div>
+</div>
+
+    <script>
+        const calendar = document.querySelector('.datepicker');
+        M.Datepicker.init(calendar, {});
+    </script>
