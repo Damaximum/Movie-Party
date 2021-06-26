@@ -16,17 +16,12 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo left grey-text text-lighten-5">Movie Party</a>
       {{!-- <a href="" data-target="mobile-drop" class="dropdown-trigger"><i class="material-icons">menu</i></a> --}}
-      {{#if loggedIn}}
-      <ul class="center right-on-med-and-down">
-        <li> {{user.name}} </li>
-        <li> {{user.id}} </li>
-      </ul>>
-      {{/if}}
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
         <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
         <li><a href="/friends" class="grey-text text-lighten-5" >Friends</a></li>
         {{#if loggedIn}}
+        <li><a href="/profile" class="grey-text text-lighten-5">Profile</a></li>
         <li><a href="/" id="logout" class="grey-text text-lighten-5">Logout</a></li>
         {{else}}
         <li><a href="/login" class="grey-text text-lighten-5">Login</a></li>

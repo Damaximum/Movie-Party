@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, userEvent, Events } = require("../models");
+const { User, userEvent, Events, Friends } = require("../models");
 const withAuth = require("../utils/auth");
 
 // READ All Events
@@ -38,9 +38,58 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/event/:id", async (req, res) => {
+  try {
+    // const eventData = await Events.findByPk(req.params.id, {
+    //   include: [],
+    // });
+    const eventData = await userEvent.findByPk(req.params.id, {
+      include: [
+        {
+          model: Events,
+          attributes: ["title", "event_info", "date_created", "user_id"],
+          include: [
+            {
+              model: User,
+              attributes: ["name"],
+            },
+          ],
+        },
+      ],
+    });
+
+    if (!eventData) {
+      res.status(404).json({ message: "No Events found with this id!" });
+      return;
+    }
+    const event = eventData.get({ plain: true });
+    // console.log(event);
+    // res.status(200).json(event);
+    res.render("eventsSinglePage", { event, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get("/friends", withAuth, async (req, res) => {
   try {
-    res.render("friendsPage");
+    const dbfriend = await Friends.findAll({
+      where: {
+        requester_id: req.session.user_id,
+      },
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ["name"],
+      //   },
+      // ],
+    });
+    const friend = dbfriend.map((friend) => friend.get({ plain: true }));
+
+    // console.log(friend);
+
+    res.render("friendsPage", { friend, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -77,6 +126,22 @@ router.get("/signup", async (req, res) => {
     } else {
       res.render("signup");
     }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/profile", async (req, res) => {
+  try {
+    const userProfile = User.findByPk(req.session.user_id);
+
+    // const profile = userProfile.get({ plain: true });
+
+    console.log(userProfile);
+    res.status(200).json(userProfile);
+
+    // res.render("userProfile", { profile });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

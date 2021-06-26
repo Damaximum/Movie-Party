@@ -3,24 +3,17 @@
 {{#if loggedIn}}
 
     {{#each events as |event|}}
-
-        <div class="card mb-5">
-    <div class="card-header bg-secondary">
-      <div class="container">
-        <div class="row align-items-end">
-          <div class="col">
-            <h4 class="card-title left"><a class="text-info text-decoration-none" href="/post/{{event.event.id}}">{{event.event.title}}</a></h4>
-          </div>
-          <div class="col">
-        <p class="card-subtitle mb-2 right">Posted by {{event.event.user.name}} on {{format_date event.event.date_created}}</p>
-          </div>
+        <br/>
+       <div class="row z-depth-2">
+            <div class="col s8">
+                <h4>
+                    <a href="/event/{{event.id}}">{{event.event.title}}</a>
+                </h4>
+                <p>Date of event: {{event.event.date_created}}</p>
+                <p>Hosted by: {{event.event.user.name}}</p>
+                <p>{{event.event.event_info}}</p>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="card-body">
-        <p class="card-text">{{event.event.event_info}}</p>
-    </div>
-</div>
         
     {{/each}}
 

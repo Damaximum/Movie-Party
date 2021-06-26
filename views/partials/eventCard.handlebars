@@ -1,17 +1,18 @@
-<div class="card mb-5">
-    <div class="card-header bg-secondary">
-      <div class="container">
-        <div class="row align-items-end">
-          <div class="col">
-            <h4 class="card-title text-start fs-3 align-self-center"><a class="text-info text-decoration-none" href="/post/{{id}}">{{title}}</a></h4>
-          </div>
-          <div class="col">
-        <p class="card-subtitle mb-2 text-light text-end fs-6 align-self-center">Posted by {{user.name}} on {{format_date date_created}}</p>
-          </div>
+<div class="row z-depth-2">
+            <div class="col s8">
+                <h4>
+                    <a href="/event/{{event.event.id}}">{{event.event.title}}</a>
+                </h4>
+                <p>Date of event: {{event.event.date_created}}</p>
+                <p>Hosted by: {{event.event.user.name}}</p>
+                <p>{{event.event.event_info}}</p>
+            </div>
+            <br>
+            <br>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn"><i class="material-icons right">add_circle</i>RSVP</a>
+                <br>
+                <br>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Share</a>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="card-body">
-        <p class="card-text">{{event_info}}</p>
-    </div>
-</div>

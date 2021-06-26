@@ -1,18 +1,22 @@
 [
     {
         "title": "2001: A Space Odyssey",
-        "event_info": "A classic sci-fi movie."
+        "event_info": "A classic sci-fi movie.",
+        "date_created": "07/23/2022"
     },
     {
         "title": "John Wick - All three movies",
-        "event_info": "A marathon of all three John Wick movies"
+        "event_info": "A marathon of all three John Wick movies",
+        "date_created": "07/23/2022"
     },
     {
         "title": "Star Wars or Lord of the Rings Marathon",
-        "event_info": "Currently deciding between LotR or SW movies to marathon. Come vote!"
+        "event_info": "Currently deciding between LotR or SW movies to marathon. Come vote!",
+        "date_created": "07/23/2022"
     },
     {
         "title": "Newer comedy movies Review",
-        "event_info": "A small marathon of some of the newer movies. Wish Dragon, The Mitchells vs the Machines, etc..."
+        "event_info": "A small marathon of some of the newer movies. Wish Dragon, The Mitchells vs the Machines, etc...",
+        "date_created": "07/23/2022"
     }
 ]

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Friends } = require("../../models");
+const { Friends, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // CREATE Friends
@@ -54,15 +54,14 @@ router.post("/:id", async (req, res) => {
 // READ Friends
 router.get("/", async (req, res) => {
   try {
-    const FriendsData = await Friends.findAll({
+    const friendsData = await Friends.findAll({
       where: {
-        requester_id: req.params.id,
+        requester_id: req.session.user_id,
       },
-      // ...req.body,
-      // reciever_id: req.session.user_id,
     });
-
-    res.status(200).json(FriendsData);
+    const friend = friendsData.map((friend) => friend.get({ plain: true }));
+    // console.log(friend);
+    res.status(200).json(friend);
   } catch (err) {
     res.status(500).json(err);
   }
