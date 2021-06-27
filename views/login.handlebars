@@ -1,22 +1,31 @@
  <main>
    <div class="container">
- <form id="login-form">
-    <h1 class="h3 mb-3 fw-normal">Login</h1>
-
-    <div class="form-floating mb-3">
-      <label for="username-login">Username</label>
-      <input type="text" class="form-control" id="username-login" placeholder="Username" autofocus="true">
-    </div>
-    <div class="form-floating mb-3">
-      <label for="password-login">Password</label>
-      <input type="password" class="form-control" id="password-login" placeholder="Password" autofocus="true">
-    </div>
-  <div class="center">
-    <button class="w-100 btn btn-lg btn-info mb-3 " type="submit">Sign in</button>
-    </div>
-    <div class="right">
-    <a class="login-link" href="/signup">Sign up instead</a>
-    </div>
-  </form>
-  </div>
+            <form id="login-form">
+                <h1 class="title is-1">Login</h1>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="form-floating mb-3">
+                            <label for="username-login">Username</label>
+                            <input type="text" class="input is-link" id="username-login" placeholder="Username"
+                                autofocus="true">
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="form-floating mb-3">
+                            <label for="password-login">Password</label>
+                            <input type="password" class="input is-link" id="password-login" placeholder="Password"
+                                autofocus="true">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="center">
+                        <button class="button is-link is-focused " type="submit">Sign in</button>
+                    </div>
+                    <div class="right">
+                        <a class="login-link" href="/signup">Sign up instead</a>
+                    </div>
+                </div>
+            </form>
+        </div>
 </main>

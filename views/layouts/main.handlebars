@@ -4,44 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
     <link rel="stylesheet" href="/css/style.css">
     <title>Movie Party~!</title>
 </head>
 <body>
 
   <header>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo left grey-text text-lighten-5">Movie Party</a>
-      {{!-- <a href="" data-target="mobile-drop" class="dropdown-trigger"><i class="material-icons">menu</i></a> --}}
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
-        <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
-        <li><a href="/friends" class="grey-text text-lighten-5" >Friends</a></li>
-        {{#if loggedIn}}
-        <li><a href="/profile" class="grey-text text-lighten-5">Profile</a></li>
-        <li><a href="/" id="logout" class="grey-text text-lighten-5">Logout</a></li>
-        {{else}}
-        <li><a href="/login" class="grey-text text-lighten-5">Login</a></li>
-        {{/if}}
-      </ul>
-    </div>
-  </nav>
-  {{!-- <ul class="dropdown-content" id="mobile-drop">
-    <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
-     <li class="divider"></li>
-    <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
-     <li class="divider"></li>
-    <li><a href="/friends" class="grey-text text-lighten-5" >Friends</a></li>
-     <li class="divider"></li>
-    {{#if loggedIn}}
-    <li><a href="/" id="logout" class="grey-text text-lighten-5">Logout</a></li>
-    {{else}}
-    <li><a href="/login" class="grey-text text-lighten-5">Login</a></li>
-    {{/if}}
-  </ul> --}}
+    <nav>
+            <div class="nav-wrapper">
+                <div class="row">
+                    <div class="columns">
+                        <div class="column is-4">
+                            <h3 class="title is-3">
+                                <a href="/" class="brand-logo left grey-text text-lighten-5">Movie Party</a>
+                            </h3>
+                        </div>
+                        <div class="column">
+                            <div class="columns">
+                                <div class="column is-2">
+                                    <a href="/" class="grey-text text-lighten-5">Home</a>
+                                </div>
+                                <div class="column is-2">
+                                    <a href="/events" class="grey-text text-lighten-5">Events</a>
+                                </div>
+                                <div class="column is-2">
+                                    <a href="/friends" class="grey-text text-lighten-5">Friends</a>
+                                </div>
+                                <div class="column is-2">
+                                    <a href="/profile" class="grey-text text-lighten-5">Profile</a>
+                                </div>
+                                <div class="column is-2">
+                                    <a href="/" id="logout" class="grey-text text-lighten-5">Logout</a>
+                                </div>
+                                <div class="column is-2">
+                                    <a href="/login" class="grey-text text-lighten-5">Login</a>
+                                </div>
+                            </div>
+                            {{!-- <a href="" data-target="mobile-drop" class="dropdown-trigger"><i class="material-icons">menu</i></a> --}}
+                            {{!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
+                                <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
+                                <li><a href="/friends" class="grey-text text-lighten-5">Friends</a></li>
+                                {{#if loggedIn}}
+                                <li><a href="/profile" class="grey-text text-lighten-5">Profile</a></li>
+                                <li><a href="/" id="logout" class="grey-text text-lighten-5">Logout</a></li>
+                                {{else}}
+                                <li><a href="/login" class="grey-text text-lighten-5">Login</a></li>
+                                {{/if}}
+                            </ul> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        {{!-- <ul class="dropdown-content" id="mobile-drop">
+              <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
+               <li class="divider"></li>
+              <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
+               <li class="divider"></li>
+              <li><a href="/friends" class="grey-text text-lighten-5" >Friends</a></li>
+               <li class="divider"></li>
+              {{#if loggedIn}}
+              <li><a href="/" id="logout" class="grey-text text-lighten-5">Logout</a></li>
+              {{else}}
+              <li><a href="/login" class="grey-text text-lighten-5">Login</a></li>
+              {{/if}}
+            </ul> --}}
   </header>
         
 
