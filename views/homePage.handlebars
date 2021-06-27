@@ -1,42 +1,46 @@
-<main>
 <div class="container">
-{{#if loggedIn}}
-
-    {{#each events as |event|}}
-        <br/>
-       <div class="row z-depth-2">
-            <div class="col s8">
-                <h4>
-                    <a href="/event/{{event.id}}">{{event.event.title}}</a>
-                </h4>
-                <p>Date of event: {{event.event.date_created}}</p>
-                <p>Hosted by: {{event.event.user.name}}</p>
-                <p>{{event.event.event_info}}</p>
+            {{#if loggedIn}}
+            
+                {{#each events as |event|}}
+            <br />
+            <div class="row">
+                <div class="column is-12">
+                    <h4 class="title is-4">
+                        <a href="/event/{{event.id}}">{{event.event.title}}</a>
+                    </h4>
+                    <p>Date of event: {{event.event.date_created}}</p>
+                    <p>Hosted by: {{event.event.user.name}}</p>
+                    <p>{{event.event.event_info}}</p>
+                </div>
             </div>
+
+            {{/each}}
+            <br>
+            <div class="row">
+                <div class="column is-12">
+                    <a href="/events" id="download-button" class="button is-link is-focused">Go make an
+                        event!</a>
+                </div>
+            </div>
+
+            {{else}}
+
+            <div class="container">
+                <div class="column is-12">
+                    <br><br>
+                    <h1 class="title is-1">Movie Party</h1>
+                    <div class="row">
+                        <h5 class="title is-5">Plan your next movie party with your friends!</h5>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <a href="/login" id="download-button" class="button is-link is-focused">Login</a>
+                        <a href="/signup" id="download-button" class="button is-link is-focused">Signup</a>
+                    </div>
+                </div>
+
+            </div>
+
+            {{/if}}
         </div>
-        
-    {{/each}}
-
-    <div class="row center">
-        <a href="/events" id="download-button" class="btn-large waves-effect waves-light blue">Go make an event!</a>
-    </div>
-
-{{else}}
-
-    <div class="container">
-      <br><br>
-      <h1 class="header center blue-text">Movie Party</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Plan your next movie party with your friends!</h5>
-      </div>
-      <div class="row center">
-        <a href="/login" id="download-button" class="btn-large waves-effect waves-light blue">Login</a>
-        <a href="/signup" id="download-button" class="btn-large waves-effect waves-light blue">Signup</a>
-      </div>
-      <br><br>
-
-    </div>
-
-{{/if}}
-    </div>
 </main>
