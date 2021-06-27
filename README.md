@@ -26,5 +26,5 @@ This project is licensed under the Creative Commons license family license.
 ​
 ## Questions
 ​
-If you have any questions about the repo, open an issue or contact [Damaximum](https://github.com/Damaximum) 
+If you have any questions about the repo, open an issue or contact [Ryan](https://github.com/Damaximum), [Mary](https://github.com/MarSarain1919) or [Wesley](https://github.com/WesEvan).
     
