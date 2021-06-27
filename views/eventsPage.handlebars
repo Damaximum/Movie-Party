@@ -7,7 +7,7 @@
         {{!-- loop over each event --}}
         {{#each events as |event|}}
         <div class="row">
-            <div class="columns">
+            <div class="is-flex-direction-column">
                 <div class="column is-8">
                     <h4>
                         <a href="/event/{{event.id}}">{{event.title}}</a>
@@ -37,20 +37,20 @@
 
             <form class="form new-event-form" id="create-event-form" method="POST" action="/events">
                 <div class="row">
-                    <div class="input-field col is-12">
-                        <input class="input" type="text" placeholder="Event Name" id="event-name">
+                    <div class="input-field column">
+                        <input class="input" type="text" id="event-name">
                         <label for="event-name">Event Name</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col is-12">
-                        <input class="input datepicker" type="text" placeholder="Event Date" id="event-date">
+                    <div class="input-field column">
+                        <input class="input datepicker" type="text" id="event-date">
                         <label for="event-date">Date of Event</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col is-12">
-                        <input class="input" type="text" placeholder="Event Description" id="event-desc">
+                    <div class="input-field column">
+                        <input class="input" type="text" id="event-desc">
                         <label for="event-desc">Event Description</label>
                     </div>
                 </div>
