@@ -78,18 +78,18 @@ router.get("/friends", withAuth, async (req, res) => {
       where: {
         requester_id: req.session.user_id,
       },
-      // include: [
-      //   {
-      //     model: User,
-      //     attributes: ["name"],
-      //   },
-      // ],
     });
+    // const dbfriend = await User.findAll({
+    //   where: {
+    //     id: req.session.id,
+    //   },
+    //   include: "friends",
+    // });
     const friend = dbfriend.map((friend) => friend.get({ plain: true }));
 
-    // console.log(friend);
-
-    res.render("friendsPage", { friend, loggedIn: req.session.loggedIn });
+    console.log(friend);
+    res.status(200).json(friend);
+    // res.render("friendsPage", { friend, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -134,14 +134,17 @@ router.get("/signup", async (req, res) => {
 
 router.get("/profile", async (req, res) => {
   try {
-    const userProfile = User.findByPk(req.session.user_id);
+    const userProfile = await User.findOne({
+      where: { id: req.session.user_id },
+      attribute: ["name", "id"],
+    });
 
-    // const profile = userProfile.get({ plain: true });
+    const profile = userProfile.get({ plain: true });
 
-    console.log(userProfile);
-    res.status(200).json(userProfile);
+    // console.log(userProfile);
+    // res.status(200).json(userProfile);
 
-    // res.render("userProfile", { profile });
+    res.render("userProfile", { profile });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
