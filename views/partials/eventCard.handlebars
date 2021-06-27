@@ -1,0 +1,18 @@
+<div class="row z-depth-2">
+            <div class="col s8">
+                <h4>
+                    <a href="/event/{{event.event.id}}">{{event.event.title}}</a>
+                </h4>
+                <p>Date of event: {{event.event.date_created}}</p>
+                <p>Hosted by: {{event.event.user.name}}</p>
+                <p>{{event.event.event_info}}</p>
+            </div>
+            <br>
+            <br>
+            <div class="col s4">
+                <a class="waves-effect waves-light btn"><i class="material-icons right">add_circle</i>RSVP</a>
+                <br>
+                <br>
+                <a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Share</a>
+            </div>
+        </div>

@@ -1,29 +1,4 @@
 const loginFormHandler = async (event) => {
-<<<<<<< HEAD
-    event.preventDefault();
-  
-    const name = document.querySelector("#username-login").value.trim();
-    const password = document.querySelector("#password-login").value.trim();
-  
-    if (name && password) {
-      const response = await fetch("/api/users/login", {
-        method: "POST",
-        body: JSON.stringify({ name, password }),
-        headers: { "Content-Type": "application/json" },
-      });
-  
-      if (response.ok) {
-        document.location.replace("/dashboard");
-      } else {
-        alert("Failed to sign up");
-      }
-    }
-  };
-  
-  document
-    .querySelector("#login-form")
-    .addEventListener("submit", loginFormHandler);
-=======
   event.preventDefault();
 
   const name = document.querySelector("#username-login").value.trim();
@@ -37,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/dashboard");
+      document.location.replace("/");
     } else {
       alert("Failed to sign up");
     }
@@ -47,4 +22,3 @@ const loginFormHandler = async (event) => {
 document
   .querySelector("#login-form")
   .addEventListener("submit", loginFormHandler);
->>>>>>> main

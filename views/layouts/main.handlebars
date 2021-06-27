@@ -5,28 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <title>Movie Party~!</title>
 </head>
 <body>
-    
 
+  <header>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo left grey-text text-lighten-5">Movie Party</a>
+      {{!-- <a href="" data-target="mobile-drop" class="dropdown-trigger"><i class="material-icons">menu</i></a> --}}
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
+        <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
+        <li><a href="/friends" class="grey-text text-lighten-5" >Friends</a></li>
+        {{#if loggedIn}}
+        <li><a href="/profile" class="grey-text text-lighten-5">Profile</a></li>
+        <li><a href="/" id="logout" class="grey-text text-lighten-5">Logout</a></li>
+        {{else}}
+        <li><a href="/login" class="grey-text text-lighten-5">Login</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+  {{!-- <ul class="dropdown-content" id="mobile-drop">
+    <li><a href="/" class="grey-text text-lighten-5">Home</a></li>
+     <li class="divider"></li>
+    <li><a href="/events" class="grey-text text-lighten-5">Events</a></li>
+     <li class="divider"></li>
+    <li><a href="/friends" class="grey-text text-lighten-5" >Friends</a></li>
+     <li class="divider"></li>
+    {{#if loggedIn}}
+    <li><a href="/" id="logout" class="grey-text text-lighten-5">Logout</a></li>
+    {{else}}
+    <li><a href="/login" class="grey-text text-lighten-5">Login</a></li>
+    {{/if}}
+  </ul> --}}
+  </header>
+        
 
-            {{#if loggedIn}}
-            <li class="nav-item float-sm-end">
-              <a class="nav-link" href="/" id="logout">Logout</a>
-            </li>
-            {{else}}
-            <li class="nav-item float-sm-end">
-              <a class="nav-link" href="/login">Login/Signup</a>
-            </li>
-            {{/if}}
-
-<<<<<<< HEAD
-        {{{ body }}}
-=======
 {{{ body }}}
->>>>>>> main
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     {{#if loggedIn}}
@@ -35,9 +54,7 @@
     <script src="/js/login.js"></script>
     {{/if}}
 
-<<<<<<< HEAD
-    
-=======
->>>>>>> main
+    <script src="/js/script.js"></script>
+
 </body>
 </html>
