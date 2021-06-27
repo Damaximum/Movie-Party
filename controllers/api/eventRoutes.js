@@ -18,6 +18,7 @@ router.post("/", withAuth, async (req, res) => {
     // });
 
     // res.status(200).json({ newEvents, newUserEvent });
+    console.log(newEvents);
     res.status(200).json(newEvents);
   } catch (err) {
     res.status(400).json(err);
