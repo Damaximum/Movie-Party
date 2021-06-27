@@ -5,22 +5,28 @@ const withAuth = require("../utils/auth");
 // READ All Events
 router.get("/", withAuth, async (req, res) => {
   try {
-    const dbEvent = await userEvent.findAll({
+    // const dbEvent = await userEvent.findAll({
+    //   where: {
+    //     user_id: req.session.user_id,
+    //   },
+    //   include: [
+    //     {
+    //       model: Events,
+    //       attributes: ["title", "event_info", "date_created", "user_id"],
+    //       include: [
+    //         {
+    //           model: User,
+    //           attributes: ["name"],
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // });
+
+    const dbEvent = await Event.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      include: [
-        {
-          model: Events,
-          attributes: ["title", "event_info", "date_created", "user_id"],
-          include: [
-            {
-              model: User,
-              attributes: ["name"],
-            },
-          ],
-        },
-      ],
     });
 
     const events = dbEvent.map((event) => event.get({ plain: true }));
