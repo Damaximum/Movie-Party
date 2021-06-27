@@ -6,29 +6,34 @@
             <li class="tab col s6"><a href="#pending"> Pending </a></li>
         </ul>
     </div> --}}
-    <div id="accepted">
-        {{#each friend as |friend|}}
-            <li class="collection-item avatar">
+    <div id="accepted" class="container">
+        {{#each friend}}
+
+            {{#friends}}
+            <li>
                 <div class="col s8">
-                    <span class="title">{{friend.user.name}}</span>
-                    <p>Friend ID: {{friend.reciever_id}}</p>
-                    <p>Status: {{friend.status}}</p>
+                    <span class="title">{{this.name}}</span>
+                    <p>Friend ID: {{this.id}}</p>
+                    <p>Status: {{this.status}}</p>
                 </div>
                 <div class="col s4">
                     <a class="waves-effect waves-light btn right" id="deleteFriend"><i class="material-icons right">clear</i>Delete</a>
                 </div>
             </li>
-
+            {{/friends}}
+            
+            {{else}}
+            <h4> You have no Friends! Let's add some! </h4>
         {{/each}}
     </div>
 </div>
-
-<form>
-    <div class="input-field">
-        <input id="search" type="search" required>
-        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-        <i class="material-icons">close</i>
-    </div>
-</form>
-
+<div class="container">
+    <form>
+        <div class="input-field">
+            <input id="search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+        </div>
+    </form>
+</div>
 </main>
