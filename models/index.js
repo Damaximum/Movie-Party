@@ -32,8 +32,4 @@ userEvent.belongsTo(Events);
 User.belongsToMany(User, { through: Friends, as: "friends" });
 
 // ---------------------End of Friends Section-------------------------
-<<<<<<< HEAD
 module.exports = { User, Events, Friends, userEvent };
-=======
-module.exports = { User, Events, Friends, userEvent };
->>>>>>> main

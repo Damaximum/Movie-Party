@@ -39,8 +39,4 @@ const seedDatabase = async () => {
   process.exit(0);
 };
 
-<<<<<<< HEAD
 seedDatabase();
-=======
-seedDatabase();
->>>>>>> main

@@ -49,8 +49,4 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-module.exports = router;
->>>>>>> main
