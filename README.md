@@ -18,7 +18,7 @@ This application will help you and your friends organize a meetup online, and he
 
 ## Usage
 ​
-Visit the [deployed site]().
+Visit the [deployed site](https://movie-party-project.herokuapp.com/).
 ​
 ## License
 ​
