@@ -1,30 +1,36 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector("#event-name").value;
-  const event_info = document.querySelector("#event-desc").value;
-  const date_created = document.querySelector("#event-date").value;
+  const title = document.getElementById("event-name").value;
+  const event_info = document.getElementById("event-desc").value;
+  const date_created = document.getElementById("event-date").value;
+
+  console.log(title);
+  console.log(event_info);
+  console.log(date_created);
 
   // Send fetch request to add a new event
   const response = await fetch(`/api/events`, {
     method: "POST",
     body: JSON.stringify({
-      title,
-      event_info,
-      date_created,
+      title: title,
+      event_info: event_info,
+      date_created: date_created,
     }),
     headers: {
       "Content-Type": "application/json",
     },
   });
-  //if the dish is added, the 'all' template will be rerendered
+
+  console.log(response);
+
   if (response.ok) {
-    document.location.replace("/events");
+    document.location.reload();
   } else {
     alert("Failed to add event");
   }
 }
 
 document
-  .querySelector("#create-event-form")
-  .addEventListener("submit", newFormHandler);
+  .getElementById("create-event-form")
+  .addEventListener("click", newFormHandler);

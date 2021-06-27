@@ -101,7 +101,23 @@ router.get("/friends", withAuth, async (req, res) => {
 
 router.get("/events", withAuth, async (req, res) => {
   try {
-    res.render("eventsPage");
+    const dbEvent = await Events.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["name"],
+        },
+      ],
+    });
+
+    const events = dbEvent.map((event) => event.get({ plain: true }));
+    // console.log(req.session);
+    // console.log(events);
+    res.render("eventsPage", { events, loggedIn: req.session.loggedIn });
+    // res.status(200).json(events);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
