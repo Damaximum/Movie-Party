@@ -1,10 +1,31 @@
 const router = require("express").Router();
 const { Friends, User } = require("../models");
+const withAuth = require("../utils/auth");
 
 // READ All Friends
-router.get("/", async (req, res) => {
+// router.get("/", async (req, res) => {
+//   try {
+//     const dbfriend = await Friends.findAll({
+//       where: {
+//         requester_id: req.session.user_id,
+//       },
+//       attributes: ["requestor_id"],
+//     });
+
+//     const friend = dbfriend.map((friend) => friend.get({ plain: true }));
+//     console.log(req.session);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
+router.get("/", withAuth, async (req, res) => {
   try {
     const dbfriend = await Friends.findAll({
+      where: {
+        requester_id: req.session.user_id,
+      },
       include: [
         {
           model: User,
@@ -12,12 +33,12 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-
     const friend = dbfriend.map((friend) => friend.get({ plain: true }));
-    console.log(req.session);
+
+    console.log(friend);
+
     res.render("friendsPage", { friend, loggedIn: req.session.loggedIn });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });

@@ -1,68 +1,81 @@
-<div class="container">
-    <div class="row">
-        {{#if events.length}}
-        <div class="list-events">
-            <h4>List of Events:</h4>
-        </div>
-        {{!-- loop over each event --}}
-        {{#each events as |event|}}
-        <div class="row">
-            <div class="is-flex-direction-column">
-                <div class="column is-8">
-                    <h4>
-                        <a href="/event/{{event.id}}">{{event.title}}</a>
-                    </h4>
-                    <p>Date of event: {{event.date_created}}</p>
-                    <p>Hosted by: {{event.user_id.name}}</p>
-                    <p>{{event_info}}</p>
-                </div>
-                <br>
-                <br>
-                <div class="col is-4">
-                    <button class="button is-link is-focused" type="submit">RSVP to Event</button>
-                    <br>
-                    <br>
-                    <button class="button is-link is-focused" type="submit">Share Event</button>
-                </div>
-            </div>
-        </div>
-        {{/each}}
-        {{/if}}
-    </div>
+<div class="flex-column">
+            <header>
+                <h1>
+                    <a href="/">Movie Party!</a>
+                </h1>
+                <nav>
+                    <h1>this is nav</h1>
+                </nav>
+            </header>
+            <main>
+                <div class="container">
+                    <div class="row">
+                        {{#if events.length}}
+                        <div class="list-events">
+                            <h4>List of Events:</h4>
+                        </div>
+                        {{!-- loop over each event --}}
+                    {{#each events as |event|}}
+                        <div class="row">
+                            <div class="columns">
+                                <div class="column">
+                                    <h4>
+                                        <a href="/event/{{event.id}}">{{event.event.title}}</a>
+                                    </h4>
+                                    <p>Date of event: {{format_date event.event.date_created}}</p>
+                                    <p>Hosted by: {{event.event.user.name}}</p>
+                                    <p>{{event.event.event_info}}</p>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="column">
+                                    <button class="button is-link is-focused" type="submit">RSVP to Event</button>
+                                    <br>
+                                    <br>
+                                    <button class="button is-link is-focused" type="submit">Share Event</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    {{!-- create an event form --}}
-    <div class="row">
-        <div class="center-align">
-            <h4>Create an Event:</h4>
+                    {{/each}}
+            
+                    {{/if}}
+                </div>
 
-            <form class="form new-event-form" id="create-event-form" method="POST" action="/events">
+                {{!-- create an event form --}}
                 <div class="row">
-                    <div class="input-field column">
-                        <input class="input" type="text" id="event-name">
-                        <label for="event-name">Event Name</label>
+                    <div class="center-align">
+                        <h4>Create an Event:</h4>
+
+                        <form class="form new-event-form" id="create-event-form" method="POST" action="/events">
+                            <div class="row">
+                                <div class="input-field column">
+                                    <input placeholder="Movie Marathon" id="event-name" type="text" class="input">
+                                    <label for="event-name">Event Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field column">
+                                    <input placeholder="01/01/1999" id="event-date" type="text" class="input">
+                                    <label for="event-date">Date of Event</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field column">
+                                    <input class="input" type="text" id="event-desc">
+                                    <label for="event-desc">Event Description</label>
+                                </div>
+                            </div>
+                        </form>
+
+                        <button class="button is-link is-focused" type="submit">Create Event</button>
+
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field column">
-                        <input class="input datepicker" type="text" id="event-date">
-                        <label for="event-date">Date of Event</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field column">
-                        <input class="input" type="text" id="event-desc">
-                        <label for="event-desc">Event Description</label>
-                    </div>
-                </div>
-            </form>
-
-            <button class="button is-link is-focused" type="submit">Create Event</button>
-
         </div>
-    </div>
-</div>
 
-    <script>
-        const calendar = document.querySelector('.datepicker');
-        M.Datepicker.init(calendar, {});
-    </script>
+        {{!-- <script>
+                    const calendar = document.querySelector('.datepicker');
+                    M.Datepicker.init(calendar, {});
+                </script> --}}

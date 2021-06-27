@@ -32,7 +32,7 @@ const seedDatabase = async () => {
   for (const uEvent of userEventData) {
     await userEvent.create({
       ...uEvent,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      // user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
