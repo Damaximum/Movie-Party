@@ -29,7 +29,19 @@ userEvent.belongsTo(Events);
 
 // ---------------------- Begin Friends Section----------------------------
 
-User.belongsToMany(User, { through: Friends, as: "friends" });
+// User.belongsToMany(User, { through: Friends, as: "friends" });
+
+User.belongsToMany(User, {
+  through: Friends,
+  foreignKey: "reciever_id",
+  as: "friends",
+});
+
+User.belongsToMany(User, {
+  through: Friends,
+  foreignKey: "requester_id",
+  as: "requesters",
+});
 
 // ---------------------End of Friends Section-------------------------
 module.exports = { User, Events, Friends, userEvent };

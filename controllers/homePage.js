@@ -74,22 +74,25 @@ router.get("/event/:id", async (req, res) => {
 
 router.get("/friends", withAuth, async (req, res) => {
   try {
-    const dbfriend = await Friends.findAll({
+    const dbfriend = await User.findAll({
       where: {
-        requester_id: req.session.user_id,
+        id: req.session.user_id,
       },
+      include: [
+        {
+          model: User,
+          through: Friends,
+          as: "friends",
+          // where: {
+          //   reciever_id: req.session.id,
+          // },
+        },
+      ],
     });
-    // const dbfriend = await User.findAll({
-    //   where: {
-    //     id: req.session.id,
-    //   },
-    //   include: "friends",
-    // });
     const friend = dbfriend.map((friend) => friend.get({ plain: true }));
-
-    console.log(friend);
-    res.status(200).json(friend);
-    // res.render("friendsPage", { friend, loggedIn: req.session.loggedIn });
+    // console.log(friend);
+    // res.status(200).json(friend);
+    res.render("friendsPage", { friend, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
