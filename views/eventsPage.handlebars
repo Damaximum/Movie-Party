@@ -14,7 +14,7 @@
                                     <h4>
                                         <a href="/event/{{event.id}}">{{event.title}}</a>
                                     </h4>
-                                    <p>Date of event: {{event.date_created}}</p>
+                                    <p>Date of event: {{format_date event.date_created}}</p>
                                     <p>Hosted by: {{event.user.name}}</p>
                                     <p>{{event.event_info}}</p>
                                 </div>
@@ -28,10 +28,11 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
                     {{/each}}
+            
                     {{/if}}
-                    </div>
                 </div>
 
                 {{!-- create an event form --}}
