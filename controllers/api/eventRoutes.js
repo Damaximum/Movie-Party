@@ -11,6 +11,14 @@ router.post("/", withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
 
+    // const newUserEvent = await userEvent.create({
+    //   user_id: req.session.user_id,
+    //   isAdmin: true,
+    //   event_id:
+    // });
+
+    // res.status(200).json({ newEvents, newUserEvent });
+    console.log(newEvents);
     res.status(200).json(newEvents);
   } catch (err) {
     res.status(400).json(err);

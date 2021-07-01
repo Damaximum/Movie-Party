@@ -16,7 +16,7 @@ router.post("/:id", async (req, res) => {
     if (req.session.user_id == req.params.id) {
       res.status(404).json({ error: "You can't add yourself as a friend!" });
       return;
-    } else if (hasMatch.length > 1 && hasMatch) {
+    } else if (hasMatch.length > 1 || hasMatch) {
       console.log(hasMatch);
       res.status(404).json({ error: "This friend already exists" });
       return;
@@ -34,7 +34,7 @@ router.post("/:id", async (req, res) => {
       },
     });
 
-    if (hasMatch2.length > 1 && hasMatch2) {
+    if (hasMatch2.length > 1 || hasMatch2) {
       res.status(404).json({ error: "This friend already exists..." });
       return;
     } else {

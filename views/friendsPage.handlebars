@@ -6,22 +6,23 @@
                         <li class="tab col s6"><a href="#pending"> Pending </a></li>
                     </ul>
                 </div> --}}
-                <div id="accepted" class="container">
+                <div id="accepted" class="container delete-btn">
                     {{#each friend}}
             
                         {{#friends}}
-                    <li>
-                        <div class="columns">
+                    
+                        <div class="columns box ">
                             <div class="column is-8 is-offset-1">
                                 <span class="title">{{this.name}}</span>
                                 <p>Friend ID: {{this.id}}</p>
-                                <p>Status: {{this.status}}</p>
+                                {{!-- <p>Status: {{this.status}}</p> --}}
                             </div>
                             <div class="column">
-                                <button class="button is-link is-focused" id="deleteFriend">Delete Friend</button>
+                                <button class="button is-link is-focused delete-post-btn" data-value="{{this.id}}">Delete Friend</button>
                             </div>
                         </div>
-                    </li>
+                        <br>
+                    
                     {{/friends}}
                     
                         {{else}}
@@ -35,11 +36,10 @@
             </div>
             <div class="row">
                 <div class="column is-10 is-offset-1">
-                    <form>
-                        <div class="input-field">
-                            <input id="search" type="search" required>
-                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
+                    <form id="input2">
+                        <div class="field">
+                            <label class="label-icon" for="search"><i class="material-icons">Add your friend by ID</i></label>
+                            <input class="input search" type="text" placeholder="Input your friend's ID" id="input1">
                         </div>
                     </form>
                 </div>
@@ -47,3 +47,5 @@
         </form>
     </div>
 </main>
+
+<script src="/js/add-delete-friends.js"></script>

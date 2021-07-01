@@ -99,14 +99,14 @@ router.get("/friends", withAuth, async (req, res) => {
   }
 });
 
-router.get("/events", withAuth, async (req, res) => {
-  try {
-    res.render("eventsPage");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// router.get("/events", withAuth, async (req, res) => {
+//   try {
+//     res.render("eventsPage");
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/login", async (req, res) => {
   try {

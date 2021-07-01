@@ -1,9 +1,11 @@
 <div class="container">
+    <br/>
+    <br/>
             {{#if loggedIn}}
             
                 {{#each events as |event|}}
             <br />
-            <div class="row">
+            <div class="row box">
                 <div class="column is-12">
                     <h4 class="title is-4">
                         <a href="/event/{{event.id}}">{{event.event.title}}</a>
@@ -13,7 +15,7 @@
                     <p>{{event.event.event_info}}</p>
                 </div>
             </div>
-
+    <br/>
             {{/each}}
             <br>
             <div class="row">
